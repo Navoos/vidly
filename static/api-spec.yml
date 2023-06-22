@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  title: Vidly API
+  description: A Simple API for learning purposes. 
+  version: 1.0.0
+paths:
+  /api/genres:
+    get:
+      summary: Returns the list of genres.
+      responses:
+        '200':
+          description: A JSON array of all genres;
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: object
+    post:
+      summary: Create a genre.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                genre:
+                  type: string
+      responses:
+        '200':
+          description: genre created.
+  /api/genres/{id}:
+    get:
+      summary: Return the object with the specified id.
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: CANNOT FIND GENRE
+    put:
+      summary: update the name of a genre.
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                genre:
+                  type: string
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: CANNOT FIND GENRE
+    delete:
+      summary: delete a genre.
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: CANNOT FIND GENRE

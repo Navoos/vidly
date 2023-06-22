@@ -4,6 +4,15 @@ const { Validator } = require("node-input-validator");
 
 genres = [];
 
+router.get("/", (req, res) => {
+  res.sendFile("../static/index.html", (err) => {
+    if (err) {
+      res.status(404).send();
+      return;
+    }
+  });
+});
+
 router.get("/api/genres", (req, res) => {
   res.json(genres);
 });
@@ -63,6 +72,5 @@ router.delete("/api/genres/:id", (req, res) => {
   genres.splice(index, 1);
   res.send(gen);
 });
-
 
 module.exports = router;

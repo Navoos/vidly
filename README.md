@@ -1,5 +1,5 @@
 # vidly
 a simple restful api for learning purposes
 ## usage:
-  ``` npm i ````
+  ``` npm i ```
  ``` node app.js ```
